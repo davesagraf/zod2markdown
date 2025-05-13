@@ -91,3 +91,7 @@ You should get this:
 | password | string (Minimum length: 8, Maximum length: 50) | Yes | Password of the User |  |
 
 ```
+## Inspired by 
+https://github.com/matejchalk/zod2md
+
+Thanks https://github.com/matejchalk! (haven't really used your `converter`, `formatter`, `loader` or `types`, though)
