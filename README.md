@@ -92,6 +92,6 @@ You should get this:
 
 ```
 ## Inspired by 
-https://github.com/matejchalk/zod2md
+[zod2md](https://github.com/matejchalk/zod2md)
 
-Thanks https://github.com/matejchalk! (haven't really used your `converter`, `formatter`, `loader` or `types`, though)
+Thanks [matejchalk](https://github.com/matejchalk)! (haven't really used your `converter`, `formatter`, `loader` or `types`, though)
