@@ -311,13 +311,11 @@ function extractSchemaMeta(schema: z.ZodTypeAny): SchemaMeta {
  * Unwrap schema from ZodOptional, ZodNullable, ZodDefault, etc.
  */
 function unwrapSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
-  if (schema instanceof z.ZodOptional) {
-    return unwrapSchema(schema._def.innerType);
-  }
-  if (schema instanceof z.ZodNullable) {
-    return unwrapSchema(schema._def.innerType);
-  }
-  if (schema instanceof z.ZodDefault) {
+  if (schema instanceof z.ZodOptional
+    || schema instanceof z.ZodNullable
+    || schema instanceof z.ZodDefault
+    || schema instanceof z.ZodReadonly 
+    || schema instanceof z.ZodCatch) {
     return unwrapSchema(schema._def.innerType);
   }
   if (schema instanceof z.ZodEffects) {
@@ -325,12 +323,6 @@ function unwrapSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
   }
   if (schema instanceof z.ZodBranded) {
     return unwrapSchema(schema._def.type);
-  }
-  if (schema instanceof z.ZodReadonly) {
-    return unwrapSchema(schema._def.innerType);
-  }
-  if (schema instanceof z.ZodCatch) {
-    return unwrapSchema(schema._def.innerType);
   }
   if (schema instanceof z.ZodLazy) {
     return unwrapSchema(schema._def.getter());
