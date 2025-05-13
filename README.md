@@ -46,9 +46,48 @@ npm run cli
 | `-o, --output <path>` | `string` |    no    | Path to output Markdown file (defaults to stdout) |
 | `-a, --append`        | `string` |    no    |   Append to output file instead of overwriting    |
 
-For example:
+#### Example:
 
 ```bash
 
 npm run cli -- -s src/schemas/configSchema.ts -e configSchema -t 'App config schema envs document' -o ../Desktop/app_config_envs_doc.md
+```
+
+So, for example:
+
+If you have this code in `src/schemas/user/userSchema.ts`:
+
+```typescript
+
+import { z } from "zod";
+
+export const userSchema = z.object({
+    fullName: z.string().describe('Name of the User'),
+    email: z.string().email().describe('Email of the User'),
+    login: z.string().min(3).max(30).describe('Login/username of the User'),
+    password: z.string().min(8).max(50).describe('Password of the User')
+})
+```
+
+And you run:
+
+```bash
+
+npm run cli -- -s src/schemas/user/userSchema.ts -e userSchema -t 'User validation schema document' -o ../Desktop/user_validation_schema_doc.md
+```
+
+You should get this:
+```md
+
+## User validation schema document
+
+### userSchema
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| fullName | string | Yes | Name of the User |  |
+| email | string (Must be a valid email) | Yes | Email of the User |  |
+| login | string (Minimum length: 3, Maximum length: 30) | Yes | Login/username of the User |  |
+| password | string (Minimum length: 8, Maximum length: 50) | Yes | Password of the User |  |
+
 ```
