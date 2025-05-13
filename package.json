@@ -1,0 +1,27 @@
+{
+  "name": "zod2markdown",
+  "version": "1.0.0",
+  "description": "Zod schemas to Markdown",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/dev.ts",
+    "temp": "tsx src/temp.ts",
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "zod-to-markdown": "tsx src/index.ts"
+  },
+  "author": "dave",
+  "license": "MIT",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "typescript": "^5.8.3",
+    "tsx": "^4.19.4",
+    "zod": "^3.24.4"
+  }
+}

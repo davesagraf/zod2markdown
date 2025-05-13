@@ -1,0 +1,11 @@
+.DS_store
+
+node_modules
+
+src/extensions
+
+src/schemas
+
+src/baseConfigSchema.ts
+
+src/temp.ts
