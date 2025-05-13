@@ -8,7 +8,7 @@
     "temp": "tsx src/temp.ts",
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "zod-to-markdown": "tsx src/index.ts"
+    "cli": "tsx src/index.ts"
   },
   "author": "dave",
   "license": "MIT",
